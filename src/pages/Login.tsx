@@ -1,10 +1,12 @@
 import { useActionState } from "react";
 import Button from "../components/UI/Button";
 import Input from "../components/UI/Input";
-import { redirect, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import useStorage from "../Hooks/useStorage";
 
 function Login() {
   const [data, action, isLoading] = useActionState(createUsers, null);
+  const [user, setUser] = useStorage<Record<string, boolean>>("isLoggedin", {});
   const navigation = useNavigate();
 
   function createUsers(data, formData: FormData) {
@@ -20,7 +22,13 @@ function Login() {
         navigation("/signup");
         return;
       }
-      redirect("/");
+
+      setUser((prev) => ({
+        ...prev,
+        loggedIn: !prev.loggedIn,
+      }));
+
+      navigation("/", { replace: true });
     });
   }
 
