@@ -17,16 +17,15 @@ function Login() {
         (user) => user.email === userCredentials.email,
       );
 
-      if (isExist) {
+      if (!isExist) {
         alert("The user is not found");
         navigation("/signup");
         return;
       }
 
-      setUser((prev) => ({
-        ...prev,
-        loggedIn: !prev.loggedIn,
-      }));
+      setUser({
+        loggedIn: true,
+      });
 
       navigation("/", { replace: true });
     });
@@ -37,7 +36,7 @@ function Login() {
       <form action={action}>
         <Input type="text" name="names" placeholder="names goes here..." />
         <Input type="text" name="email" placeholder="input your email..." />
-        <Button disabled={isLoading}>Create</Button>
+        <Button disabled={isLoading}>Login</Button>
       </form>
     </>
   );
