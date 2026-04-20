@@ -1,4 +1,4 @@
-
+import Anchor from "../components/UI/Anchor";
 import Button from "../components/UI/Button";
 import { ProductInfo } from "../MockData/Data";
 function Vans() {
@@ -18,11 +18,13 @@ function Vans() {
             const { id, img, Pname, price, category } = product;
             return (
               <div key={id} className="card">
-                <img src={img} alt={`${img}-${id}`} />
-                <section>
-                  <p>{Pname}</p>
-                  <p>{price}</p>
-                </section>
+                <Anchor to={`${id}`} state={product}>
+                  <img src={img} alt={`${img}-${id}`} />
+                  <section>
+                    <p>{Pname}</p>
+                    <p>{price}</p>
+                  </section>
+                </Anchor>
                 <Button>{category}</Button>
               </div>
             );
