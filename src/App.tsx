@@ -6,16 +6,24 @@ const NavLayout = lazy(() => import("./pages/NavLayout"));
 const AboutPage = lazy(() => import("./pages/About"));
 const HomePage = lazy(() => import("./pages/Home"));
 const Vans = lazy(() => import("./pages/Vans"));
+const VansLayout = lazy(() => import("./pages/VansLayout"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
+const Product = lazy(() => import("./pages/Product"));
 function App() {
   return (
     <>
       <Routes>
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
+
         <Route path="/" element={<NavLayout />}>
           <Route index element={<HomePage />} />
-          <Route path="/vans" element={<Vans />} />
+
+          <Route path="/vans" element={<VansLayout />}>
+            <Route index element={<Vans />} />
+            <Route path=":id" element={<Product />} />
+          </Route>
+
           <Route path="/about" element={<AboutPage />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
