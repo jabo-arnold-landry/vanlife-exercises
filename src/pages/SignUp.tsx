@@ -1,6 +1,7 @@
 import { useActionState } from "react";
 import Button from "../components/UI/Button";
 import Input from "../components/UI/Input";
+import Anchor from "../components/UI/Anchor";
 
 function Login() {
   const [data, action, isLoading] = useActionState(createUsers, null);
@@ -26,6 +27,9 @@ function Login() {
         <Input type="text" name="email" placeholder="input your email..." />
         <Button disabled={isLoading}>Create</Button>
       </form>
+      <p>
+        have an account login here <Anchor to="/login">here.</Anchor>
+      </p>
     </>
   );
 }
