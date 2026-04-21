@@ -4,13 +4,15 @@ import { Outlet } from "react-router-dom";
 function NavLayout() {
   return (
     <>
-      <nav>
+      <nav className="flex justify-between py-6 px-10 items-center">
         <h1>
           {" "}
-          <Anchor to="/">#Vanlife</Anchor>
+          <Anchor to="/" className="text-3xl font-black">#Vanlife</Anchor>
         </h1>
-        <Anchor to="about">about</Anchor>
-        <Anchor to="vans">vans</Anchor>
+        <div className="flex flex-wrap gap-10 text-links-color text-xl">
+          <Anchor to="about">about</Anchor>
+          <Anchor to="vans">vans</Anchor>
+        </div>
       </nav>
 
       <Outlet />
