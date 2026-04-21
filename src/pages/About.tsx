@@ -31,7 +31,7 @@ function About() {
           <h3 className="max-inline-96 text-3xl font-bold">
             Your destination is waiting. Your van is ready.
           </h3>
-          <Button>Explore our vans</Button>
+          <Button color="bgBlack" sizes="md">Explore our vans</Button>
         </section>
       </div>
     </>

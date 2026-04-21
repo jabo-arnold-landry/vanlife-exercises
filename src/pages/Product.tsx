@@ -8,13 +8,23 @@ function Product() {
   const { img, category, Pname, price, Pdescription } = product;
   return (
     <>
-      <Anchor to="/vans">back to vans</Anchor>
-      <img src={img} alt="imageone" />
-      <Button>{category}</Button>
-      <h3>{Pname}</h3>
-      <strong>{price}</strong>
-      <p>{Pdescription}</p>
-      <Button>Rent the van</Button>
+      <main className="mx-10">
+        <Anchor to="/vans">back to vans</Anchor>
+        <img src={img} alt="imageone" />
+        <div className="my-5 grid gap-4">
+          <Button
+            className="place-self-start"
+            color={category as string}
+            sizes="sm"
+          >
+            {category}
+          </Button>
+          <h3>{Pname}</h3>
+          <strong className="font-bold text-xl">{price}</strong>
+          <p className="max-inline-[40ch] text-2xl">{Pdescription}</p>
+          <Button color="bgOrange" sizes="lg">Rent the van</Button>
+        </div>
+      </main>
     </>
   );
 }

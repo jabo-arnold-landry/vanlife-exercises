@@ -1,4 +1,4 @@
-import Anchor from "../components/UI/Anchor";
+import { Link } from "react-router-dom";
 import Button from "../components/UI/Button";
 import { ProductInfo } from "../MockData/Data";
 function Vans() {
@@ -8,11 +8,11 @@ function Vans() {
         <section className="mx-12">
           <h2 className="font-bold text-4xl">Explore our van options</h2>
 
-          <div>
-            <Button>simple</Button>
-            <Button>luxury</Button>
-            <Button>rugged</Button>
-            <Button>clear filters</Button>
+          <div className="flex gap-2 mt-5">
+            <Button color="filtersButton" sizes="md">simple</Button>
+            <Button color="filtersButton" sizes="md">luxury</Button>
+            <Button color="filtersButton" sizes="md">rugged</Button>
+            <Button color="clearFilter">clear filters</Button>
           </div>
         </section>
 
@@ -21,7 +21,7 @@ function Vans() {
             const { id, img, Pname, price, category } = product;
             return (
               <div key={id} className="card">
-                <Anchor to={`${id}`} state={product}>
+                <Link to={`${id}`} state={product}>
                   <img
                     src={img}
                     alt={`${img}-${id}`}
@@ -32,8 +32,8 @@ function Vans() {
                     <p className="font-bold text-4xl">{Pname}</p>
                     <p className="text-xl">{price}</p>
                   </section>
-                </Anchor>
-                <Button>{category}</Button>
+                </Link>
+                <Button sizes="sm" color={category as string}>{category}</Button>
               </div>
             );
           })}
