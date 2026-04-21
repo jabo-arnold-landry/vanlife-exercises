@@ -1,1 +1,9 @@
-@import 'tailwindcss'
+@import "tailwindcss";
+
+@theme {
+  --color-links-color: #4d4d4d;
+  --color-active-link: #161616;
+  --font-text-font: "Inter", sans-serif;
+  --color-footer-bg: #252525;
+  --color-graishcolor: #aaaaaa;
+}
