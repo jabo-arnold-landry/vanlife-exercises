@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <footer>
+    <footer className="text-graishcolor bg-footer-bg py-6 text-3xl grid place-content-center">
       <p>&copy;2026 #Vanlife</p>
     </footer>
   );
