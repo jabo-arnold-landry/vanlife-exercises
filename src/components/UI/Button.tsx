@@ -15,12 +15,15 @@ const buttonStyles = cva(
     "py-1",
     "font-bold",
     "cursor-pointer",
+    "transtion-all delay-120 duration-300 linear",
+    "hover:scale-110 active:scale-75",
   ],
+  
   {
     variants: {
       color: {
         bgBlack: ["bg-black"],
-        bgOrange: ["bg-[#FF8C38]"],
+        bgOrange: ["bg-[#FF8C38] hover:bg-orange-500"],
         filtersButton: ["bg-[#FFEAD0]", "text-links-color", "px-4", "py-1"],
         clearFilter: ["text-links-color", "bg-none", "underline"],
         simple: ["bg-[#E17654]"],
