@@ -10,7 +10,7 @@ function Product() {
     <>
       <main className="mx-10">
         <Anchor to="/vans">back to vans</Anchor>
-        <img src={img} alt="imageone" />
+        <img src={img} alt="imageone" className="transition-transform delay-75 duration-75 hover:scale-90" />
         <div className="my-5 grid gap-4 w-fit">
           <Button
             className="place-self-start"
