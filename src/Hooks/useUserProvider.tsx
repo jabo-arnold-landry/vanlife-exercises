@@ -4,15 +4,15 @@ export const UserStorage = createContext({});
 interface ChildProp {
   children: ReactNode;
 }
-function useUserProvider({ children }: ChildProp) {
-  const [user, setUser] = useState("");
+function UserProvider({ children }: ChildProp) {
+  const [session, setSession] = useState<Record<string, boolean>>({});
   return (
     <>
-      <UserStorage.Provider value={{ user, setUser }}>
+      <UserStorage.Provider value={{ session, setSession }}>
         {children}
       </UserStorage.Provider>
     </>
   );
 }
 
-export default useUserProvider;
+export default UserProvider;
