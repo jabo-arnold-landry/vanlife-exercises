@@ -1,5 +1,6 @@
 import { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
+const Profile = lazy(() => import("./pages/Profile"));
 const SignUp = lazy(() => import("./pages/SignUp"));
 const Login = lazy(() => import("./pages/Login"));
 const NavLayout = lazy(() => import("./pages/NavLayout"));
@@ -9,24 +10,34 @@ const Vans = lazy(() => import("./pages/Vans"));
 const VansLayout = lazy(() => import("./pages/VansLayout"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 const Product = lazy(() => import("./pages/Product"));
+const NavLayoutProtected = lazy(() => import("./pages/NavLayoutProtected"));
+const Host = lazy(() => import("./pages/Host"));
+const AuthLayout = lazy(() => import("./pages/AuthLayout"));
 function App() {
   return (
     <>
       <Routes>
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<Login />} />
-
         <Route path="/" element={<NavLayout />}>
           <Route index element={<HomePage />} />
 
+          <Route path="" element={<NavLayoutProtected />}>
+            <Route path="/host" element={<Host />} />
+            <Route path="/profile" element={<Profile />} />
+          </Route>
+          
           <Route path="/vans" element={<VansLayout />}>
             <Route index element={<Vans />} />
             <Route path=":id" element={<Product />} />
           </Route>
 
           <Route path="/about" element={<AboutPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
-        <Route path="*" element={<NotFoundPage />} />
+
+        <Route path="" element={<AuthLayout />}>
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+        </Route>
       </Routes>
     </>
   );
