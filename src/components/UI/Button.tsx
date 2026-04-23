@@ -18,7 +18,7 @@ const buttonStyles = cva(
     "transtion-all delay-120 duration-300 linear",
     "hover:scale-110 active:scale-75",
   ],
-  
+
   {
     variants: {
       color: {
@@ -32,6 +32,7 @@ const buttonStyles = cva(
       },
       sizes: {
         sm: ["px-3", "py-1"],
+        authSize: ["py-3", "hover:scale-105"],
         md: ["px-5", "py-2"],
         lg: ["w-[70vh]", "py-3"],
       },
