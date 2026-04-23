@@ -2,6 +2,7 @@ import { useActionState } from "react";
 import Button from "../components/UI/Button";
 import Input from "../components/UI/Input";
 import Anchor from "../components/UI/Anchor";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [data, action, isLoading] = useActionState(createUsers, null);
@@ -22,13 +23,27 @@ function Login() {
 
   return (
     <>
-      <form action={action}>
-        <Input type="text" name="names" placeholder="names goes here..." />
-        <Input type="text" name="email" placeholder="input your email..." />
-        <Button disabled={isLoading}>Create</Button>
+      <h2 className="font-bold text-4xl text-center mb-10">
+        Create your account
+      </h2>
+      <form
+        action={action}
+        className="flex flex-col max-inline-2xl my-auto mx-auto"
+      >
+        <Input type="text" name="names" placeholder="Email address" />
+        <Input type="text" name="email" placeholder="Password" />
+
+        <Button
+          className="my-4 place-self-stretch"
+          color="bgOrange"
+          sizes="authSize"
+          disabled={isLoading}
+        >
+          Create
+        </Button>
       </form>
-      <p>
-        have an account login here <Anchor to="/login">here.</Anchor>
+      <p className="text-center font-text-font text-lg">
+        have an account login <Link to="/login" className="text-orange-600">here.</Link>
       </p>
     </>
   );
