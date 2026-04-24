@@ -66,7 +66,7 @@ function Vans() {
                     src={img}
                     alt={`${img}-${id}`}
                     loading="lazy"
-                    className="min-w-2/3 object-cove rounded-lg transition-transform delay-75 duration-75 ease-in-out hover:scale-75 overflow-clip"
+                    className="min-w-2/3 object-cover rounded-lg transition-transform delay-75 duration-75 ease-in-out hover:scale-75 overflow-clip"
                   />
                   <section className="flex justify-between my-2">
                     <p className="font-bold text-4xl">{Pname}</p>
