@@ -24,11 +24,14 @@ export default function HostDashboard() {
 
         <article>
           <h2>Your listed vans</h2>
-          <section className="grid gap-3 mb-4">
+          <section className="flex flex-wrap mx-3 gap-3 mb-4 md:grid grid-cols-4">
             {ProductInfo.map((product) => {
               const { id, img, Pname, price } = product;
               return (
-                <div key={id} className="card bg-orange-200  px-2 py-3 flex items-center max-inline-110 gap-10 rounded-md shadow-sm shadow-black/50">
+                <div
+                  key={id}
+                  className="card bg-orange-200  px-2 py-3 flex flex-wrap lg:flex-nowrap items-center gap-10 rounded-md shadow-sm shadow-black/50"
+                >
                   <img
                     src={img}
                     alt={`${img}-${id}`}
