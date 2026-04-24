@@ -13,6 +13,7 @@ const Product = lazy(() => import("./pages/Product"));
 const NavLayoutProtected = lazy(() => import("./pages/NavLayoutProtected"));
 const Host = lazy(() => import("./pages/Host"));
 const AuthLayout = lazy(() => import("./pages/AuthLayout"));
+const HostDashboard = lazy(() => import("./pages/HostDashboard"));
 function App() {
   return (
     <>
@@ -21,10 +22,12 @@ function App() {
           <Route index element={<HomePage />} />
 
           <Route path="" element={<NavLayoutProtected />}>
-            <Route path="/host" element={<Host />} />
+            <Route path="/host" element={<Host />}>
+              <Route index element={<HostDashboard />}></Route>
+            </Route>
             <Route path="/profile" element={<Profile />} />
           </Route>
-          
+
           <Route path="/vans" element={<VansLayout />}>
             <Route index element={<Vans />} />
             <Route path=":id" element={<Product />} />
